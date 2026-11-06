@@ -24,15 +24,8 @@ import com.materialkolor.dynamiccolor.ColorSpec
 import com.materialkolor.rememberDynamicColorScheme
 import com.materialkolor.score.Score
 
-val DefaultThemeColor = Color(0xFF8E8E8E)
+val DefaultThemeColor = Color(0xFFBB86FC)
 
-/**
- * mochy renders dark-only.
- *
- * The light palette was never finished - large parts of the UI hardcode white text and dark
- * glass - so on a light-mode phone the app looked broken rather than light. Pinned here as one
- * switch instead of being decided independently at every call site.
- */
 const val ForceDarkTheme = true
 
 @Composable
@@ -43,17 +36,14 @@ fun MochyTheme(
 ) {
     val context = LocalContext.current
 
-    // Dynamic (Material You) colour is deliberately not used - the app ships its own palette.
-    // The branch is gone rather than dead-but-present: dynamic*ColorScheme is API 31.
     val baseColorScheme = run {
-
         if (darkTheme) {
             darkColorScheme(
-                primary = Color(0xFFE0E0E0),
+                primary = Color(0xFFBB86FC),
                 onPrimary = Color.Black,
                 primaryContainer = Color(0xFF333333),
                 onPrimaryContainer = Color.White,
-                secondary = Color(0xFFB0B0B0),
+                secondary = Color(0xFFBB86FC),
                 onSecondary = Color.Black,
                 secondaryContainer = Color(0xFF2C2C2C),
                 onSecondaryContainer = Color.White,
@@ -67,11 +57,11 @@ fun MochyTheme(
             )
         } else {
             lightColorScheme(
-                primary = Color.Black,
+                primary = Color(0xFFBB86FC),
                 onPrimary = Color.White,
                 primaryContainer = Color(0xFFE0E0E0),
                 onPrimaryContainer = Color.Black,
-                secondary = Color(0xFF333333),
+                secondary = Color(0xFFBB86FC),
                 onSecondary = Color.White,
                 secondaryContainer = Color(0xFFCCCCCC),
                 onSecondaryContainer = Color.Black,
